@@ -53,8 +53,38 @@ function ModulePage() {
       <h1>{module.title}</h1>
       <p style={styles.desc}>{module.description}</p>
 
+      {/* 📊 PRESENTATIONS/PPTs */}
+      <div style={styles.pptWrapper}>
+        <h3 style={{ marginTop: "30px", marginBottom: "15px" }}>Presentations</h3>
+        {module.ppts && module.ppts.length > 0 ? (
+          module.ppts.map((ppt, index) => (
+            <div key={index} style={{ marginBottom: "30px" }}>
+              <iframe
+                src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(ppt)}`}
+                width="100%"
+                height="600"
+                frameBorder="0"
+                allowFullScreen
+                style={{
+                  borderRadius: "10px",
+                  border: "1px solid #555",
+                }}
+              ></iframe>
+              <p style={{ marginTop: "10px", fontSize: "14px", color: "#aaa" }}>
+                <a href={ppt} download style={{ color: "#00c3ff", textDecoration: "none" }}>
+                  ⬇️ Download
+                </a>
+              </p>
+            </div>
+          ))
+        ) : (
+          <p>No presentations available</p>
+        )}
+      </div>
+
       {/* 🎥 MULTIPLE VIDEOS */}
       <div style={styles.videoWrapper}>
+        <h3 style={{ marginTop: "30px", marginBottom: "15px" }}>Videos</h3>
         {module.videos && module.videos.length > 0 ? (
           module.videos.map((video, index) => (
             <iframe
@@ -123,6 +153,12 @@ const styles = {
 
   desc: {
     color: "#ccc",
+    marginBottom: "20px",
+  },
+
+  pptWrapper: {
+    maxWidth: "900px",
+    margin: "auto",
     marginBottom: "20px",
   },
 
