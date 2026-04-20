@@ -1,8 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
+  const timeoutRef = useRef(null);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -27,6 +28,14 @@ function Login() {
       nextRef?.current?.focus();
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        window.clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   const handleSubmit = async () => {
     setMessage("");
@@ -79,7 +88,7 @@ function Login() {
 
         setMessage("Signup successful! Please login.");
 
-        setTimeout(() => {
+        timeoutRef.current = window.setTimeout(() => {
           setIsLogin(true);
           setMessage("");
         }, 2000);

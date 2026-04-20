@@ -48,6 +48,28 @@ function ModulePage() {
     alert("Module Completed!");
   };
 
+  const defaultPpts = {
+    1: ["/ppts/01_AI_Basics.pptx"],
+    2: ["/ppts/02_AI_in_Insurance.pptx"],
+    3: ["/ppts/03_AI_in_Compliance.pptx"],
+    4: ["/ppts/04_Risk_Management.pptx"],
+    5: ["/ppts/05_Fraud_Detection.pptx"],
+  };
+
+  const rawPpts = module.ppts || (module.ppt ? [module.ppt] : []);
+  const ppts = rawPpts.length > 0 ? rawPpts : defaultPpts[Number(id)] || [];
+
+  const getPublicPptUrl = (pptPath) => {
+    if (!pptPath) return "";
+    if (pptPath.startsWith("http://") || pptPath.startsWith("https://")) {
+      return pptPath;
+    }
+    if (pptPath.startsWith("/")) {
+      return `${window.location.origin}${pptPath}`;
+    }
+    return `${window.location.origin}/${pptPath}`;
+  };
+
   return (
     <div style={styles.container}>
       <h1>{module.title}</h1>
@@ -56,11 +78,13 @@ function ModulePage() {
       {/* 📊 PRESENTATIONS/PPTs */}
       <div style={styles.pptWrapper}>
         <h3 style={{ marginTop: "30px", marginBottom: "15px" }}>Presentations</h3>
-        {module.ppts && module.ppts.length > 0 ? (
-          module.ppts.map((ppt, index) => (
+        {ppts.length > 0 ? (
+          ppts.map((ppt, index) => (
             <div key={index} style={{ marginBottom: "30px" }}>
               <iframe
-                src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(ppt)}`}
+                src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(
+                  getPublicPptUrl(ppt)
+                )}`}
                 width="100%"
                 height="600"
                 frameBorder="0"
@@ -72,7 +96,7 @@ function ModulePage() {
                 }}
               ></iframe>
               <p style={{ marginTop: "10px", fontSize: "14px", color: "#aaa" }}>
-                <a href={ppt} download style={{ color: "#00c3ff", textDecoration: "none" }}>
+                <a href={getPublicPptUrl(ppt)} download style={{ color: "#00c3ff", textDecoration: "none" }}>
                   ⬇️ Download
                 </a>
               </p>
