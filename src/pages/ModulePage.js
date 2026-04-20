@@ -65,6 +65,7 @@ function ModulePage() {
                 height="600"
                 frameBorder="0"
                 allowFullScreen
+                title={`presentation-${index}`}
                 style={{
                   borderRadius: "10px",
                   border: "1px solid #555",
