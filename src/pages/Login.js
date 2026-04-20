@@ -33,7 +33,7 @@ function Login() {
 
     try {
       if (isLogin) {
-        // LOGIN VALIDATION ONLY ON CLICK
+        
         if (!email || !password) {
           return setMessage("Enter email and password");
         }
@@ -46,7 +46,7 @@ function Login() {
         localStorage.setItem("user", JSON.stringify(res.data));
         window.location.href = "/dashboard";
       } else {
-        // SIGNUP VALIDATION
+        
         if (!name || !phone || !email || !password) {
           return setMessage("All fields are required");
         }
@@ -115,7 +115,7 @@ function Login() {
               onKeyDown={(e) => focusNext(e, phoneRef)}
             />
 
-            {/* PHONE */}
+            { }
             <input
               ref={phoneRef}
               style={styles.input}
@@ -131,7 +131,7 @@ function Login() {
           </>
         )}
 
-        {/* EMAIL */}
+        { }
         <input
           ref={emailRef}
           style={styles.input}
@@ -142,7 +142,7 @@ function Login() {
           onKeyDown={(e) => focusNext(e, passRef)}
         />
 
-        {/* PASSWORD (FIXED – no random submit) */}
+        { }
         <input
           ref={passRef}
           style={styles.input}
@@ -153,7 +153,7 @@ function Login() {
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               if (isLogin) {
-                handleSubmit(); // only Enter triggers
+                handleSubmit(); 
               } else {
                 focusNext(e, confirmRef);
               }
@@ -161,7 +161,7 @@ function Login() {
           }}
         />
 
-        {/* CONFIRM PASSWORD */}
+        { }
         {!isLogin && (
           <input
             ref={confirmRef}
@@ -176,7 +176,7 @@ function Login() {
           />
         )}
 
-        {/* MESSAGE */}
+        { }
         {message && (
           <p
             style={{
@@ -204,7 +204,7 @@ function Login() {
             style={styles.link}
             onClick={() => {
               setIsLogin(!isLogin);
-              setMessage(""); // 🔥 clears old error
+              setMessage(""); 
             }}
           >
             {isLogin ? "Create Account" : "Login"}

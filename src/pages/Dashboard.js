@@ -21,7 +21,7 @@ function Dashboard() {
         {progress.toFixed(0)}% Completed
       </p>
 
-      {/* Progress Bar */}
+      { }
       <div style={styles.progressWrapper}>
         <div
           style={{
@@ -31,7 +31,7 @@ function Dashboard() {
         ></div>
       </div>
 
-      {/* Modules */}
+      { }
       <div style={styles.grid}>
         {modules.map((m) => (
           <div key={m.id} style={styles.card}>
@@ -49,7 +49,7 @@ function Dashboard() {
         ))}
       </div>
 
-      {/* Certificate Button */}
+      { }
       <button
         style={{
           ...styles.certBtn,

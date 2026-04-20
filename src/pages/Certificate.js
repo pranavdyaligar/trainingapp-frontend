@@ -90,7 +90,7 @@ const styles = {
     borderRadius: "10px",
     padding: "12px",
     boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
-    boxSizing: "border-box", // fix overflow
+    boxSizing: "border-box", 
   },
 
   inner: {
@@ -99,7 +99,7 @@ const styles = {
     borderRadius: "8px",
     padding: "40px",
     textAlign: "center",
-    boxSizing: "border-box", // fix overflow
+    boxSizing: "border-box", 
   },
 
   title: {

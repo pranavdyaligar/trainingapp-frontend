@@ -6,7 +6,7 @@ function Home() {
   return (
     <div style={styles.container}>
 
-      {/* Hero Section */}
+      { }
       <div style={styles.hero}>
         <h1 style={styles.brand}>Comply AI</h1>
 
@@ -42,10 +42,10 @@ function Home() {
 </button>
       </div>
 
-      {/* Features */}
+      { }
       <div style={styles.features}>
 
-        {/* CARD 1 */}
+        { }
         <div
           style={styles.card}
           onMouseEnter={(e) => {
@@ -65,7 +65,7 @@ function Home() {
           <p>Step-by-step modules designed for real industry use cases</p>
         </div>
 
-        {/* CARD 2 */}
+        { }
         <div
           style={styles.card}
           onMouseEnter={(e) => {
@@ -85,7 +85,7 @@ function Home() {
           <p>Understand real-world applications in compliance & insurance</p>
         </div>
 
-        {/* CARD 3 */}
+        { }
         <div
           style={styles.card}
           onMouseEnter={(e) => {

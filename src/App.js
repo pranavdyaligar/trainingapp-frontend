@@ -13,7 +13,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
 
-        {/* ✅ FIXED ROUTE */}
+        { }
         <Route path="/module/:id" element={<ModulePage />} />
 
         <Route path="/certificate" element={<Certificate />} />

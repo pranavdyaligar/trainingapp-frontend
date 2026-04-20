@@ -8,16 +8,16 @@ function ModulePage() {
 
   const [module, setModule] = useState(null);
 
-  // 🔥 FETCH FROM BACKEND
+  
   useEffect(() => {
     axios
-      .get("https://trainingapp-backend.onrender.com/api/modules") // ✅ correct backend
+      .get("https://trainingapp-backend.onrender.com/api/modules") 
       .then((res) => {
         console.log("API DATA:", res.data);
 
         const modules = res.data;
 
-        // ✅ SAFE SELECTION (no index bug)
+        
         const selected = modules.find(
           (_, index) => index === Number(id) - 1
         );
@@ -31,12 +31,12 @@ function ModulePage() {
       });
   }, [id]);
 
-  // ⏳ Loading state
+ 
   if (!module) {
     return <h2 style={{ color: "white" }}>Loading...</h2>;
   }
 
-  // ✅ COMPLETE MODULE
+ 
   const completeModule = () => {
     let completed = JSON.parse(localStorage.getItem("completed")) || [];
 
@@ -77,12 +77,12 @@ function ModulePage() {
         )}
       </div>
 
-      {/* ✅ COMPLETE BUTTON */}
+      { }
       <button style={styles.completeBtn} onClick={completeModule}>
         Mark as Completed
       </button>
 
-      {/* ⬅️➡️ NAVIGATION */}
+      { }
       <div style={styles.nav}>
         {Number(id) > 1 && (
           <button
@@ -103,7 +103,7 @@ function ModulePage() {
         )}
       </div>
 
-      {/* 🔙 BACK */}
+      { }
       <button style={styles.backBtn} onClick={() => navigate("/dashboard")}>
         Back to Dashboard
       </button>
@@ -111,7 +111,7 @@ function ModulePage() {
   );
 }
 
-// 🎨 STYLES
+
 const styles = {
   container: {
     minHeight: "100vh",
